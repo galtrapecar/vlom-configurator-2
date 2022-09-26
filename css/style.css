@@ -1,0 +1,1035 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+html {
+    overflow: hidden;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    z-index: 999;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.logo {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 350px;
+}
+
+#load {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.loadLogoUnder {
+    position: absolute;
+    opacity: .4;
+}
+
+.loadLogoWrap {
+    margin-top: -10%;
+    position: relative;
+    width: 60%;
+}
+
+.loadLogoOver {
+    position: absolute;
+    opacity: .9;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+#load h1 {
+    font-size: 70px;
+    color: #242424;
+}
+
+#load .load_wrap {
+    position: relative;
+    top: 25%;
+    height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.GUI {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.GUI .gui_colors {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    width: 210px;
+    padding: 0 15px;
+    padding-top: 20px;
+    border-top: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.GUI .gui_colors .color_cards_wrap {
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+
+    max-height: 2000px;
+
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+} 
+
+.GUI .gui_colors .color_cards_wrap.active {
+    max-height: 0px;
+
+    transition: max-height .3s ease-out;
+    -o-transition: max-height .3s ease-out;
+    -moz-transition: max-height .3s ease-out;
+    -webkit-transition: max-height .3s ease-out;
+}
+
+.GUI .colors_title {
+    margin-bottom: 10px;
+    font-size: 2.3em;
+    text-align: center;
+    color: #242424;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* .GUI .chevron_wrap {
+    position: relative;
+    margin: auto;
+    margin-top: -20px;
+}
+
+.GUI .chevron {
+    position: relative;
+    background-color: #242424;
+    width: 40px;
+    height: 40px;
+    transform: rotate(270deg);
+    clip-path: polygon(44% 0, 19% 51%, 44% 100%, 25% 100%, 0% 50%, 25% 0%);
+} */
+
+/* .GUI .gui_colors_bonus {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 180px;
+    width: 160px;
+    padding: 0 15px;
+    padding-top: 20px;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.GUI .gui_colors_bonus .color_card img {
+    width: 100%;
+    max-height: 20px;
+    overflow: hidden;
+    transition: max-height .3s ease-out;
+    -o-transition: max-height .3s ease-out;
+    -moz-transition: max-height .3s ease-out;
+    -webkit-transition: max-height .3s ease-out;
+}
+
+.GUI .gui_colors_bonus .color_card:hover img {
+    max-height: 100px;
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+} */
+
+.GUI .color_card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+.GUI .color_card .img {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 20px;
+    overflow: hidden;
+    transition: max-height .3s ease-out;
+    -o-transition: max-height .3s ease-out;
+    -moz-transition: max-height .3s ease-out;
+    -webkit-transition: max-height .3s ease-out;
+}
+
+.GUI .color_card .img img {
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.GUI .color_card:hover .img {
+    max-height: 100px;
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+}
+
+.GUI .color_card p {
+    margin: 10px 0 15px 5px;
+}
+
+.GUI .color_card span {
+    font-weight: bold;
+}
+
+.GUI .gui_object_info {
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    top: -100%;
+    transform: translate(-50%);
+    width: 45%;
+    /* height: 60%; */
+    border-radius: 0 0px 5px 5px;
+    display: flex;
+    flex-direction: column;
+
+
+    transition: top .3s;
+
+    /* -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    background-color: #fff; */
+}
+
+/*_______________________________________KLUKE BUTTONS________________________________________*/
+
+.GUI .gui_kluke {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 170px;
+    width: 180px;
+    padding: 0 15px;
+    padding-top: 20px;
+    border-top: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.GUI .gui_kluke .kluke_cards_wrap {
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+
+    max-height: 2000px;
+
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+} 
+
+.GUI .gui_kluke .kluke_cards_wrap.active {
+    max-height: 0px;
+
+    transition: max-height .3s ease-out;
+    -o-transition: max-height .3s ease-out;
+    -moz-transition: max-height .3s ease-out;
+    -webkit-transition: max-height .3s ease-out;
+}
+
+.GUI .kluke_title {
+    margin-bottom: 10px;
+    font-size: 2.3em;
+    text-align: center;
+    color: #242424;
+    cursor: pointer;
+    user-select: none;
+}
+
+.GUI .kluka_card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-bottom: 10px;
+
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+.GUI .kluka_card img {
+    width: 100%;
+}
+
+.GUI .kluka_card p {
+    overflow: hidden;
+    max-height: 0;
+    text-align: center;
+    margin-top: -10px;
+
+    transition: max-height .2s ease-out;
+    -o-transition: max-height .2s ease-out;
+    -moz-transition: max-height .2s ease-out;
+    -webkit-transition: max-height .2s ease-out;
+}
+
+.GUI .kluka_card:hover p {
+    max-height: 100px;
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+}
+
+/*_______________________________________KUKALA________________________________________*/
+
+.GUI .gui_kukala {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 330px;
+    width: 180px;
+    padding: 0 15px;
+    padding-top: 20px;
+    border-top: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.GUI .gui_kukala .kukala_cards_wrap {
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+
+    max-height: 2000px;
+
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+} 
+
+.GUI .gui_kukala .kukala_cards_wrap.active {
+    max-height: 0px;
+
+    transition: max-height .3s ease-out;
+    -o-transition: max-height .3s ease-out;
+    -moz-transition: max-height .3s ease-out;
+    -webkit-transition: max-height .3s ease-out;
+}
+
+.GUI .kukala_title {
+    margin-bottom: 10px;
+    font-size: 2.3em;
+    text-align: center;
+    color: #242424;
+    cursor: pointer;
+    user-select: none;
+}
+
+.GUI .kukala_card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+.GUI .kukala_card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.GUI .kukala_card p {
+    overflow: hidden;
+    max-height: 0;
+    text-align: center;
+    margin-top: 0px;
+
+    transition: max-height .2s ease-out;
+    -o-transition: max-height .2s ease-out;
+    -moz-transition: max-height .2s ease-out;
+    -webkit-transition: max-height .2s ease-out;
+}
+
+.GUI .kukala_card:hover p {
+    max-height: 100px;
+    transition: max-height .3s ease-in;
+    -o-transition: max-height .3s ease-in;
+    -moz-transition: max-height .3s ease-in;
+    -webkit-transition: max-height .3s ease-in;
+}
+
+/*_______________________________________ACTION BUTTONS________________________________________*/
+
+.GUI .gui_action_buttons {
+    position: absolute;
+    user-select: none;
+    z-index: 999;
+    left: 70%;
+    bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    transform: translateX(-50%);
+}
+
+.GUI .gui_action_buttons .rotate_view {
+    margin: 0 30px;
+}
+
+.GUI .gui_action_buttons .open_close_door {
+    position: relative;
+    width: 37px;
+    height: 37px;
+}
+
+.GUI .gui_action_buttons .rotate_view, .open_door, .close_door, .znads, .breznads, .podboj, .brezpodboja {
+    position: relative;
+    width: 37px;
+    height: 37px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GUI .gui_action_buttons .open_door, .close_door {
+    position: absolute;
+}
+
+.GUI .gui_action_buttons .close_door {
+    display: none;
+}
+
+.GUI .gui_action_buttons .open_door img, .close_door img {
+    user-select: none;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.GUI .gui_action_buttons .open_door img {
+    max-height: 23px;
+    max-width: 23px;
+}
+
+.GUI .gui_action_buttons .rotate_view:hover img {
+    transform: rotateZ(180deg);
+    transition: transform .3s ease-in;
+    -o-transition: transform .3s ease-in;
+    -moz-transition: transform .3s ease-in;
+    -webkit-transition: transform .3s ease-in;
+}
+
+.GUI .gui_action_buttons .rotate_view img {
+    transition: transform .3s ease-out;
+    -o-transition: transform .3s ease-out;
+    -moz-transition: transform .3s ease-out;
+    -webkit-transition: transform .3s ease-out;
+    max-width: 25x;
+    max-height: 25px;
+}
+
+.GUI .gui_action_buttons .toggle_nads {
+    margin-left: 30px;
+}
+
+.GUI .gui_action_buttons .breznads, .znads {
+    position: absolute;
+}
+
+.GUI .gui_action_buttons .znads {
+    display: none;
+}
+
+.GUI .gui_action_buttons .breznads img, .znads img {
+    user-select: none;
+    max-width: 21px;
+    max-height: 21px;
+}
+
+.GUI .gui_action_buttons .toggle_podboj {
+    margin-left: 67px;
+}
+
+.GUI .gui_action_buttons .podboj, .brezpodboja {
+    position: absolute;
+}
+
+.GUI .gui_action_buttons .brezpodboja {
+    z-index: -1;
+}
+
+.GUI .gui_action_buttons .podboj img, .brezpodboja img {
+    max-height: 26px;
+    max-width: 26px;
+}
+
+/* .crosshair {
+    position: absolute;
+    z-index: 998;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 18px;
+    height: 18px;
+
+    clip-path: polygon(45% 0%,55% 0%,55% 45%,100% 45%,100% 55%,55% 55%,55% 100%,45% 100%,45% 55%,0% 55%,0% 45%,45% 45%);
+    background-color: black;
+    opacity: .6;
+} */
+
+/* .gui_sprite_info {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    transform: translate(-50%, 50%);
+}
+
+.gui_sprite_info p {
+    opacity: .7;
+    text-align: center;
+    font-weight: 600;
+} */
+
+.GUI .gui_object_info .object_image {
+    position: relative;
+    width: 100%;
+    z-index: 998;
+    border-radius: 0 0 5px 5px;
+}
+
+.GUI .gui_object_info .object_image img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .object_text {
+    width: 95%;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .object_text h1 {
+    width: 100%;
+    padding: 30px 20px;
+    line-height: 30px;
+    font-size: calc(9px + 1vw);
+    text-align: center;
+}
+
+
+/*_____________________________KUKALO______________________________*/
+
+.GUI .gui_object_info .kukalo_image {
+    position: relative;
+    margin: auto;
+    width: 45%;
+    margin-top: 40px;
+    z-index: 998;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 40px;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .kukalo_image img {
+    margin: auto;
+    width: 100%;
+    display: block;
+}
+
+.GUI .gui_object_info .kukalo_text {
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .kukalo_text h1 {
+    width: 100%;
+    padding: 30px 20px;
+    line-height: 30px;
+    font-size: calc(9px + 1vw);
+    text-align: center;
+}
+
+/*__________________________________KLUKE____________________________________*/
+
+.GUI .gui_object_info .kluke_image {
+    position: relative;
+    width: 100%;
+    z-index: 998;
+    border-radius: 5px;
+    padding: 40px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.GUI .gui_object_info .kluke_image img {
+    width: 100%;
+}
+
+.GUI .gui_object_info .kluke_image .img_wrap:hover {
+    transform: scale(1.3);
+    z-index: 1000;
+}
+
+.GUI .gui_object_info .kluke_text {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .kluke_text h1 {
+    white-space: nowrap;
+    width: 100%;
+    font-weight: 700;
+    padding: 30px 20px;
+    line-height: 30px;
+    font-size: calc(9px + 1vw);
+    text-align: center;
+}
+
+.GUI .gui_object_info .kluke_image .img_wrap {
+    position: relative;
+    width: 20%;
+    display: block;
+    margin: 0 20px;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    background-color: #fff;
+    transition: transform .2s;
+    z-index: 999;
+}
+
+.GUI .gui_object_info .kluke_image .img_wrap .img_txt {
+    position: absolute;
+    bottom: 4%;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    opacity: .2;
+    font-size: 22px;
+}
+
+.hoppe {
+    letter-spacing: -2px;
+    font-size: calc(9.4px + 1vw);
+    font-weight: 800; 
+    color: #00315C;
+    display: inline-block;
+}
+
+.hoppe img {
+    max-height: .9em; 
+    margin-left: 2px; 
+    transform: translateY(6%); 
+    -webkit-transform: translateY(6%);
+    display: inline;
+    width: 35px;
+}
+
+/*________________________________ZATICI__________________________________*/
+.GUI .gui_object_info .zatici_image {
+    padding-top: 40px;
+}
+
+.GUI .gui_object_info .zatici_image img {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .zatici_text {
+    width: fit-content;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .zatici_text h1 {
+    width: 100%;
+    padding: 30px 20px;
+    line-height: 30px;
+    font-size: calc(9px + 1vw);
+    text-align: center;
+}
+
+/*__________________________ROZETA_________________________*/
+
+.GUI .gui_object_info .rozeta_image {
+    position: relative;
+    width: 90%;
+    z-index: 998;
+    border-radius: 5px;
+    padding-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.GUI .gui_object_info .rozeta_image img {
+    border-radius: 5px;
+    display: inline-block;
+    height: 500px;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .rozeta_image img:last-child {
+    margin-left: 60px;
+}
+
+.GUI .gui_object_info .rozeta_text {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .rozeta_text h1 {
+    white-space: nowrap;
+    width: 100%;
+    font-weight: 700;
+    padding: 30px 20px;
+    line-height: 30px;
+    font-size: calc(9px + 1vw);
+    text-align: center;
+}
+
+/*_______________________________________KLUCAVNCA_____________________________________*/
+
+.GUI .gui_object_info .klucavnca_image {
+    position: relative;
+    width: 100%;
+    z-index: 998;
+    border-radius: 5px;
+    padding: 40px;
+    padding-top: 60px;
+}
+
+.GUI .gui_object_info .klucavnca_image img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    height: 500px;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .klucavnca_text {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.GUI .gui_object_info .klucavnca_text h1 {
+    white-space: nowrap;
+    width: 100%;
+    font-weight: 700;
+    padding: 30px 20px;
+    line-height: 30px;
+    font-size: calc(9px + 1vw);
+    text-align: center;
+}
+
+.GUI .info {
+    z-index: 9998;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border: #fff 1.5px solid;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-content: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.GUI .trash {
+    z-index: 9998;
+    position: absolute;
+    bottom: 20px;
+    left: 55px;
+    border: #fff 1.5px solid;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-content: center;
+    color: #fff;
+    font-size: .9rem;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.GUI .trash svg {
+    place-self: center;
+    width: 60%;
+    fill: #fff;
+}
+
+@media only screen and (max-width: 2000px) {
+    .logo {
+        width: 250px;
+    }
+
+    .GUI .gui_object_info h1 {
+        font-size: calc(7px + 1vw) !important;
+        padding: 20px 20px;
+    }
+
+    .hoppe {
+        font-size: calc(9.2px + 1vw);
+        margin-right: 0px;
+    }
+
+    .hoppe img {
+        width: 25px;
+    }
+
+    .GUI .gui_object_info .kluke_image {
+        padding-top: 40px;
+    }
+
+    .GUI .gui_object_info .kluke_image img {
+        margin: 0 10px;
+    }
+
+    .GUI .gui_object_info .kluke_image .img_wrap .img_txt {
+        font-size: 18px;
+    }
+
+    .GUI .gui_object_info .rozeta_image img {
+        height: 300px;
+    }
+
+    .GUI .gui_colors {
+        width: 168px;
+        padding: 0 12px;
+        padding-top: 16px;
+    }
+
+    .GUI .colors_title {
+        font-size: 1.9em;
+    }
+
+    .GUI .gui_colors .color_cards_wrap {
+        padding: 0 16px;
+    } 
+
+    .GUI .color_card p {
+        font-size: 14px;
+        margin: 8px 0 12px 4px;
+    }
+
+    .GUI .color_card {
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    
+    .GUI .color_card .img {
+        margin-top: 16px;
+        max-height: 16px;
+    }
+    
+    .GUI .color_card:hover .img {
+        max-height: 80px;
+    }
+
+    .GUI .gui_kluke {
+        margin-right: 10px;
+        right: 136px;
+        width: 144px;
+        padding: 0 12px;
+        padding-top: 16px;
+    }
+    
+    .GUI .gui_kluke .kluke_cards_wrap {
+        padding: 0 16px;
+        margin-top: 2px;
+    } 
+    
+    .GUI .kluke_title {
+        margin-bottom: 8px;
+        font-size: 1.9em;
+    }
+    
+    .GUI .kluka_card {
+        padding-bottom: 8px;
+    
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    
+    .GUI .kluka_card p {
+        margin-top: -8px;
+    }
+    
+    .GUI .kluka_card:hover p {
+        max-height: 80px;
+    }
+
+    .GUI .gui_kukala {
+        margin-right: 20px;
+        right: 264px;
+        width: 144px;
+        padding: 0 12px;
+        padding-top: 16px;
+    }
+    
+    .GUI .gui_kukala .kukala_cards_wrap {
+        padding: 0 16px;
+    } 
+    
+    .GUI .kukala_title {
+        margin-bottom: 8px;
+        font-size: 1.9em;
+    }
+    
+    .GUI .kukala_card {
+        padding: 8px;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    
+    .GUI .kukala_card img {
+        border-radius: 4px;
+    }
+
+}

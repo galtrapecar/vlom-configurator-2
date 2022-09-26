@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLOM - Konfigurator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+    <body>
+
+    <div id="load">
+        <div class="loadLogoWrap">
+            <img class="loadLogoUnder" src="./img/vlom_konfigurator_logo.svg" alt="">
+            <img class="loadLogoOver" id="loadlogo" src="./img/vlom_konfigurator_logo.svg" alt="">
+        </div>
+        <div class="load_wrap">
+            <h1 id="loadText"></h1>
+        </div>
+    </div>
+
+    <div class="GUI">
+        <img class="logo" src="./img/vlom_konfigurator_logo.svg" alt="">
+        
+        <div class="gui_colors">
+            <h1 class="colors_title">BARVE</h1>
+
+            <div class="color_cards_wrap">
+                <div class="color_card">
+                    <div class="img"><img class="bela" src="./img/bela.jpg" alt=""></div>
+                    <p><span>1570 BS</span><br> Bela Diamond</p>
+                </div>
+                <div class="color_card">
+                    <div class="img"><img class="hrast-melody" src="./img/hrast-melody.jpg" alt=""></div>
+                    <p><span>37745 AT</span><br> Hrast Melody</p>
+                </div>
+                <div class="color_card">
+                    <div class="img"><img class="hrast" src="./img/hrast.jpg" alt=""></div>
+                    <p><span>37307 AN</span><br> Hrast Natural</p>
+                </div>
+                <div class="color_card">
+                    <div class="img"><img class="bukva" src="./img/bukva.jpg" alt=""></div>
+                    <p><span>3381 AN</span><br> Bukev</p>
+                </div>
+                <div class="color_card">
+                    <div class="img"><img class="cesna" src="./img/cesna.jpg" alt=""></div>
+                    <p><span>39345 BS</span><br> Češnja Acero</p>
+                </div>
+                <div class="color_card" id="mahagoni">
+                    <div class="img"><img class="mahagoni" src="./img/mahagoni.jpg" alt=""></div>
+                    <p><span>37489 BS</span><br> Mahagonij</p>
+                </div>
+                <div class="color_card" id="venge">
+                    <div class="img"><img class="venge" src="./img/venge.jpg" alt=""></div>
+                    <p><span>37710 BS</span><br> Wenge Gondou</p>
+                </div>
+            </div>
+
+            <script> // BARVE
+    
+                $('.colors_title').on('click tap', () => {
+    
+                    if ($('.color_cards_wrap').hasClass('active')) {
+                        $('.color_cards_wrap').removeClass('active');
+                    } else {
+                        $('.color_cards_wrap').addClass('active');
+                    }
+    
+                });
+    
+            </script>
+        </div>
+
+        <div class="gui_kluke">
+            <h1 class="kluke_title">KLJUKE</h1>
+
+            <div class="kluke_cards_wrap">
+                <div class="kluka_card narvik">
+                    <img src="./img/narvik.png" alt="">
+                    <p>Narvik</p>
+                </div>
+                <div class="kluka_card modelw">
+                    <img src="./img/modelw.png" alt="">
+                    <p>Model W</p>
+                </div>
+                <div class="kluka_card bremen">
+                    <img src="./img/bari.png" alt="">
+                    <p>Bremen</p>
+                </div>
+                <div class="kluka_card lucca">
+                    <img src="./img/lucca.png" alt="">
+                    <p>Lecce</p>
+                </div>
+                <div class="kluka_card verona">
+                    <img src="./img/tokyo.png" alt="">
+                    <p>Verona</p>
+                </div>
+                <div class="kluka_card toulon">
+                    <img src="./img/toulon.png" alt="">
+                    <p>Toulon</p>
+                </div>
+            </div>
+
+            <script> // KLUKE
+    
+                $('.kluke_title').on('click tap', () => {
+
+                    if ($('.kluke_cards_wrap').hasClass('active')) {
+                        $('.kluke_cards_wrap').removeClass('active');
+                    } else {
+                        $('.kluke_cards_wrap').addClass('active');
+                    }
+    
+                });
+    
+            </script>
+        </div>
+
+        <div class="gui_kukala">
+            <h1 class="kukala_title">KUKALA</h1>
+
+            <div class="kukala_cards_wrap">
+                <div class="kukala_card kukalo">
+                    <img src="./img/kukalo.jpg" alt="">
+                    <p>Običajno</p>
+                </div>
+                <div class="kukala_card digkuk">
+                    <img src="./img/digkuk.jpg" alt="">
+                    <p>Digitalno</p>
+                </div>
+            </div>
+
+            <script> // KLUKE
+    
+                $('.kukala_title').on('click tap', () => {
+
+                    if ($('.kukala_cards_wrap').hasClass('active')) {
+                        $('.kukala_cards_wrap').removeClass('active');
+                    } else {
+                        $('.kukala_cards_wrap').addClass('active');
+                    }
+    
+                });
+    
+            </script>
+
+        </div>
+
+        <div class="gui_action_buttons">
+            <div class="rotate_view"><img src="./img/refresh.svg" alt=""></div>
+            <div class="open_close_door">
+                <div class="open_door"><img src="./img/close.svg" alt=""></div>
+                <div class="close_door"><img src="./img/open.svg" alt=""></div>
+            </div>
+            <div class="toggle_nads">
+                <div class="breznads"><img src="./img/breznads.svg" alt=""></div>
+                <div class="znads"><img src="./img/znads.svg" alt=""></div>
+            </div>
+            <div class="toggle_podboj">
+                <div class="podboj"><img src="./img/podboj.svg" alt=""></div>
+                <div class="brezpodboja"><img src="./img/brezpodboja.svg" alt=""></div>
+            </div>
+        </div>
+
+        <div class="info" onclick="window.open('http://gal.trapecar.com')">i</div>
+
+        <div class="trash" onclick="prompt_clear_data()">
+            <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M6,12v15c0,1.654,1.346,3,3,3h14c1.654,0,3-1.346,3-3V12H6z M12,25c0,0.552-0.448,1-1,1s-1-0.448-1-1v-9  c0-0.552,0.448-1,1-1s1,0.448,1,1V25z M17,25c0,0.552-0.448,1-1,1s-1-0.448-1-1v-9c0-0.552,0.448-1,1-1s1,0.448,1,1V25z M22,25  c0,0.552-0.448,1-1,1s-1-0.448-1-1v-9c0-0.552,0.448-1,1-1s1,0.448,1,1V25z" id="XMLID_237_"/><path d="M27,6h-6V5c0-1.654-1.346-3-3-3h-4c-1.654,0-3,1.346-3,3v1H5C3.897,6,3,6.897,3,8v1c0,0.552,0.448,1,1,1h24  c0.552,0,1-0.448,1-1V8C29,6.897,28.103,6,27,6z M13,5c0-0.551,0.449-1,1-1h4c0.551,0,1,0.449,1,1v1h-6V5z" id="XMLID_243_"/></svg>
+        </div>
+        <script>
+            function prompt_clear_data() {
+                let prompt = confirm('Konfigurator v brskalink shrani podatke za hitrejše nalaganje in boljšo uporabniško izkušnjo.\n\nŽelite počistiti podatke?');
+
+                if (prompt) {
+                    window.db_clear();
+                    alert('Podatki so bili počiščeni.');
+                }
+            }
+        </script>
+
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="./js/mobile-check.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    </body>
+</html>
